@@ -1,0 +1,51 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} Askme</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Askme Home</a>
+     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" 
+      aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"> -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+           <a class="nav-item nav-link"  type="button" href="/">Home</a> 
+          <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
+           
+        </div>
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
+         <!-- <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Register</a> -->
+          <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav>
+  <h1><i>Askme</i></h1>
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Register</a>
+      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+
