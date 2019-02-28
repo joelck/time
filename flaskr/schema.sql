@@ -15,11 +15,14 @@ CREATE TABLE post (
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title TEXT NOT NULL,
   body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
+  FOREIGN KEY (author_id) REFERENCES user(id)
 );
 
+/*
 CREATE TABLE vote (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id_vote INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER NOT NULL,
   author_id INTEGER NOT NULL, 
-  FOREIGN KEY (author_id) REFERENCES user (id)
-);
+  FOREIGN KEY (author_id) REFERENCES user(id)
+  FOREIGN KEY (id) REFERENCES post(id)
+);*/
