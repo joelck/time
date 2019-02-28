@@ -2,9 +2,9 @@
 
 {% block header %}
   <h1>{% block title %}New Post{% endblock %}</h1>
-  <h2>{%<a href="#" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></a>
-    <a href="/" class="btn btn-primary radius">Post</a>
-    <a href="#" class="glyphicon glyphicon-thumbs-up" aria-hidden="true">like</a>%}
+  <h2><a href="#" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></a>
+    <a href="/" class="btn btn-primary radius">Home</a>
+    <a href="#" class="glyphicon glyphicon-thumbs-up" aria-hidden="true">like</a>
   </h2>
 {% endblock %}
 
@@ -14,6 +14,6 @@
     <input name="title" id="title" value="{{ request.form['title'] }}" required>
     <label for="body">Body</label>
     <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-    <input type="submit" value="Save">
+    <input type="submit" value="Post Answer">
   </form>
 {% endblock %}

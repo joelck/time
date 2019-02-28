@@ -1,6 +1,6 @@
 web flask app that enables users to register, login and make posts.
 python 3.6.7
-install a vurtual environment
+install a vurtual environment, flask.
 
 run app by:
 $FLASK_APP=flaskr
